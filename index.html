@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop - Tu Tienda de Tecnología</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TechShop</div>
+            <div style="display: flex;">
+                <div class="favorites-icon" onclick="toggleFavorites()">
+                    ❤️ <span class="badge" id="favorites-count">0</span>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒 <span class="badge" id="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="filters">
+            <select id="category-filter" onchange="filterProducts()">
+                <option value="">Todas las categorías</option>
+                <option value="laptops">Laptops</option>
+                <option value="smartphones">Smartphones</option>
+                <option value="tablets">Tablets</option>
+            </select>
+            <select id="price-filter" onchange="filterProducts()">
+                <option value="">Todos los precios</option>
+                <option value="0-500">$0 - $500</option>
+                <option value="501-1000">$501 - $1000</option>
+                <option value="1001+">$1001+</option>
+            </select>
+            <input type="text" id="search-filter" placeholder="Buscar productos..." oninput="filterProducts()">
+        </div>
+
+        <div class="products-grid" id="products-container">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </main>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="modal-header">
+            <h2>Carrito de Compras</h2>
+            <button class="close-modal" onclick="toggleCart()">×</button>
+        </div>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            Total: $<span id="cart-total">0</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">Proceder al pago</button>
+    </div>
+
+    <div class="favorites-modal" id="favorites-modal">
+        <div class="modal-header">
+            <h2>Mis Favoritos</h2>
+            <button class="close-modal" onclick="toggleFavorites()">×</button>
+        </div>
+        <div id="favorites-items">
+            <!-- Favorite items will be dynamically added here -->
+        </div>
+    </div>
+    <script src="scrip.js"></script>
+</body>
+</html>
